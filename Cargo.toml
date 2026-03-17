@@ -2,8 +2,26 @@
 name = "gnoem"
 version = "0.1.0"
 edition = "2021"
-
-# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+description = "Visualize Claude Code sessions as ASCII gnomes in a virtual office"
+license = "MIT"
 
 [dependencies]
-bevy = "0.12.1"
+ratatui = "0.29"
+crossterm = "0.28"
+notify = "7"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.8"
+clap = { version = "4", features = ["derive"] }
+dirs = "6"
+rand = "0.8"
+chrono = "0.4"
+
+[dev-dependencies]
+cucumber = "0.21"
+tempfile = "3"
+assert_fs = "1"
+
+[[test]]
+name = "cucumber"
+harness = false
