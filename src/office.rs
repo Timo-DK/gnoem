@@ -231,6 +231,7 @@ pub struct MiniGnoem {
 // ---------------------------------------------------------------------------
 
 /// A single Claude session represented as an ASCII gnome working at a desk.
+#[derive(Debug)]
 pub struct Gnoem {
     pub name: String,
     pub color: Color,
@@ -278,6 +279,7 @@ impl Gnoem {
 // ---------------------------------------------------------------------------
 
 /// Owns all active Gnoems, processes events, and drives per-tick updates.
+#[derive(Debug)]
 pub struct Office {
     gnoems: Vec<Gnoem>,
     registry: GnoemRegistry,

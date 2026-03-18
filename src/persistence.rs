@@ -23,6 +23,7 @@ pub struct GnoemIdentity {
 
 /// In-memory registry of gnome identities, keyed by working-directory path.
 /// Backed by a TOML file on disk.
+#[derive(Debug)]
 pub struct GnoemRegistry {
     /// Path to the TOML persistence file.
     path: PathBuf,
