@@ -19,6 +19,7 @@ chrono = "0.4"
 
 [dev-dependencies]
 cucumber = "0.21"
+futures = "0.3"
 tempfile = "3"
 assert_fs = "1"
 
