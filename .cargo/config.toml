@@ -1,0 +1,3 @@
+# Uncomment the following if you encounter MSVC linker issues on Windows:
+# [target.x86_64-pc-windows-msvc]
+# linker = "lld-link"

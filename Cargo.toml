@@ -4,6 +4,8 @@ version = "0.1.0"
 edition = "2021"
 description = "Visualize Claude Code sessions as ASCII gnomes in a virtual office"
 license = "MIT"
+repository = "https://github.com/Timo-DK/gnoem"
+homepage = "https://github.com/Timo-DK/gnoem"
 
 [dependencies]
 ratatui = "0.29"
@@ -26,3 +28,6 @@ assert_fs = "1"
 [[test]]
 name = "cucumber"
 harness = false
+
+[[test]]
+name = "integration"

@@ -12,7 +12,9 @@ use crate::office::Office;
 /// User-driven actions that any renderer can raise.
 #[derive(Debug, Clone, PartialEq)]
 pub enum AppAction {
+    /// Exit the application.
     Quit,
+    /// Freeze or resume all animations.
     TogglePause,
 }
 

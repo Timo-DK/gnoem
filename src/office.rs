@@ -178,6 +178,7 @@ impl Default for DeskEnvironment {
 }
 
 impl DeskEnvironment {
+    /// Update desk props when a tool use completes successfully.
     pub fn on_tool_use(&mut self) {
         self.paper_stack = (self.paper_stack + 1).min(10);
         self.monitor_typing = true;
@@ -186,25 +187,33 @@ impl DeskEnvironment {
         self.recover_plant();
     }
 
+    /// Update desk props when a tool use fails.
     pub fn on_tool_failure(&mut self) {
         self.monitor_error = true;
         self.monitor_typing = false;
     }
 
+    /// Update desk props when the agent stops (refills coffee).
     pub fn on_agent_stop(&mut self) {
         self.coffee_level = (self.coffee_level + 0.25).min(1.0);
     }
 
+    /// Update desk props when a context compaction occurs (reduces paper stack).
     pub fn on_compact(&mut self) {
         self.paper_stack = self.paper_stack.saturating_sub(3);
     }
 
+    /// Update desk props when the user submits a prompt (places an envelope).
     pub fn on_prompt_submit(&mut self) {
         self.has_envelope = true;
         self.monitor_typing = false;
         self.monitor_error = false;
     }
 
+    /// Update desk props on an idle simulation tick.
+    ///
+    /// `wilt_progress` is a `0.0..=1.0` value indicating how far along the
+    /// wilt timeline the plant currently is.
     pub fn on_idle_tick(&mut self, wilt_progress: f32) {
         self.plant_health = (1.0 - wilt_progress).max(0.0);
         self.monitor_typing = false;
